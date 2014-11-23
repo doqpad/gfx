@@ -1,0 +1,29 @@
+{
+	// Enforcing
+	"bitwise": true,
+	"eqeqeq": true,
+	"freeze": true,
+	"latedef": true,
+	"noarg": true,
+	"undef": true,
+	"unused": true,
+	"strict": false,
+
+	// Environment
+	"node": true,
+	"browser": true,
+	"mocha": true,
+	"esnext": true,
+	"globals": {
+		"Graphic": false,
+		"Pipeline": false,
+		"$": false,
+		"QUnit": false,
+		"describe": false,
+		"it": false,
+		"before": false,
+		"beforeEach": false,
+		"after": false,
+		"afterEach": false
+	}
+}

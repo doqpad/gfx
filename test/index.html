@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html>
+	<head>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #333;
+				font-family: sans-serif;
+				font-size: 0.8em;
+			}
+			canvas,
+			form {
+				box-shadow: 0 0.25em 0.5em #000;
+				background-color: rgba(0,0,0,0.5);
+			}
+			canvas {
+				vertical-align: middle;
+			}
+			form {
+				position: absolute;
+				top: 0em;
+				right: 0em;
+				bottom: 0em;
+				padding-top: 2em;
+				overflow: auto;
+			}
+			fieldset {
+				margin: 0;
+				padding: 2em;
+				border: none;
+				color: #fff;
+				width: 10em;
+			}
+			legend {
+				color: #666;
+				font-weight: bold;
+				font-size: 1.5em;
+			}
+			label {
+				display: block;
+			}
+			.view {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 28.5em;
+			}
+			.container-wrapper {
+				display: table;
+				width: 100%;
+				height: 100%;
+			}
+			.container {
+				position: relative;
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.canvas-wrapper-outer {
+				display: inline-block;
+			}
+			.canvas-wrapper-inner {
+				display: table;
+			}
+			.canvas {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+				border: dashed 2px #666;
+				border-radius: 1em;
+				padding: 1em;
+			}
+			.param {
+				display: block;
+				margin: 1em 0 2em 0;
+				padding: 0.5em;
+				height: 2.5em;
+				width: 100%;
+				box-sizing: border-box;
+				background-color: #000;
+				color: #fff;
+			}
+			.param[disabled] {
+				opacity: 0.25;
+			}
+			.panel {
+				display: inline-block;
+				vertical-align: top;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="view">
+			<div class="container-wrapper">
+				<div class="container">
+					<div class="canvas-wrapper-outer">
+						<div class="canvas-wrapper-inner">
+							<div class="canvas"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form>
+			<div class="panel">
+				<fieldset>
+					<legend>Render</legend>
+					<label for="param-render-mode">Mode</label>
+					<select id="param-render-mode" class="param">
+						<option value="contain" selected>Contain</option>
+						<option value="cover">Cover</option>
+						<option value="natural">Natural</option>
+					</select>
+					<label for="param-render-width">Width</label>
+					<input type="range" min="1" max="800" value="400" class="param" id="param-render-width">
+					<label for="param-render-height">Height</label>
+					<input type="range" min="1" max="800" value="400" class="param" id="param-render-height">
+				</fieldset>
+			</div>
+			<div class="panel">
+				<fieldset>
+					<legend>Blur</legend>
+					<label for="param-blur-radius">Radius</label>
+					<input type="range" min="0" max="100" value="0" class="param" id="param-blur-radius">
+				</fieldset>
+				<fieldset>
+					<legend>Convolve</legend>
+					<label for="param-convolve-sharpen">Sharpen</label>
+					<input type="range" min="0" max="100" value="0" class="param" id="param-convolve-sharpen">
+					<label for="param-convolve-soften">Soften</label>
+					<input type="range" min="0" max="100" value="0" class="param" id="param-convolve-soften">
+				</fieldset>
+				<fieldset>
+					<legend>Filter</legend>
+					<label for="param-filter-saturation">Saturation</label>
+					<input type="range" min="-100" max="100" value="0" class="param" id="param-filter-saturation">
+					<label for="param-filter-vibrance">Vibrance</label>
+					<input type="range" min="-100" max="100" value="0" class="param" id="param-filter-vibrance">
+					<label for="param-filter-brightness">Brightness</label>
+					<input type="range" min="-100" max="100" value="0" class="param" id="param-filter-brightness">
+					<label for="param-filter-contrast">Contrast</label>
+					<input type="range" min="-100" max="100" value="0" class="param" id="param-filter-contrast">
+				</fieldset>
+			</div>
+		</form>
+		<script src="../lib/jquery.js"></script>
+		<script src="../src/Pipeline.js"></script>
+		<script src="../src/Graphic.js"></script>
+		<script src="../src/modules/blur.js"></script>
+		<script src="../src/modules/convolve.js"></script>
+		<script src="../src/modules/filter.js"></script>
+		<script src="../src/modules/render.js"></script>
+		<script src="../src/modules/filters/brightness.js"></script>
+		<script src="../src/modules/filters/contrast.js"></script>
+		<script src="../src/modules/filters/saturation.js"></script>
+		<script src="../src/modules/filters/vibrance.js"></script>
+		<script src="../src/modules/kernels/soften.js"></script>
+		<script src="../src/modules/kernels/sharpen.js"></script>
+		<script src="demo.js"></script>
+	</body>
+</html>
