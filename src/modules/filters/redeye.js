@@ -23,7 +23,7 @@ Pipeline.modules.filter.redeye = function ( params ) {
 				g = imageData.data[offset + 1];
 				b = imageData.data[offset + 2];
 				if ( g || b ) {
-					redIntensity = 2 * r / (g + b);
+					redIntensity = 2 * r / ( g + b );
 				} else if ( r ) {
 					redIntensity = 2;
 				} else {

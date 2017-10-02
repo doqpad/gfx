@@ -1,7 +1,7 @@
 {
 	"preset": "wikimedia",
 
-	"requireSpacesInsideArrayBrackets": null,
-	"disallowDanglingUnderscores": null,
-	"disallowQuotedKeysInObjects": null
+	"requireSpacesInsideBrackets": false,
+	"disallowDanglingUnderscores": false,
+	"disallowQuotedKeysInObjects": false
 }
